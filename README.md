@@ -37,7 +37,7 @@ end
 
 ## Preconditions
 
-- InSpec 3
+- Inspec 3+
 - InSpec K8s train/backend plugin [train-kubernetes](https://github.com/bgeesaman/train-kubernetes)
 
 ## Train plugin installation
