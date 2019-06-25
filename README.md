@@ -64,3 +64,10 @@ Run inspec against a profile called `path-to-profile` with an attributes file:
 ```
 inspec exec path-to-profile -t k8s:// --attrs attributes.yml
 ```
+
+## Troubleshooting
+
+If you run into issues installing via `inspec plugin install train-kubernetes`, try:
+
+* Ensure you can cleanly install the `k8s-client` gem version `0.10.0` or greater.  e.g. `gem install k8s-client -v 0.10.0`
+* Ensure that only one version of the `excon` gem is installed.  e.g. `gem list | grep excon`.  If you see two versions, `gem uninstall -v 0.62.0` and remove the older version.
