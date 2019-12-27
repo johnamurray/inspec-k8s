@@ -83,5 +83,9 @@ module Inspec::Resources
     def include?(key)
       @k8sobject.key?(key)
     end
+
+    def running?
+      @k8sobject.status.phase == "Running" unless @k8sobject.status.phase.nil?
+    end
   end
 end

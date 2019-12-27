@@ -37,37 +37,18 @@ end
 
 ## Preconditions
 
-- Inspec 3+
+- Inspec 3.7+ or 4.x+
 - InSpec K8s train/backend plugin [train-kubernetes](https://github.com/bgeesaman/train-kubernetes)
 
-## Train plugin installation
+## Using with an Inspec Profile
 
-To install the plugin `train-kubernetes`:
-
-```
-$ inspec plugin install train-kubernetes
-```
-
-Verify the plugin is installed:
-
-```
-$ inspec detect -t k8s://
-
-== Platform Details
-
-Name:      k8s
-Families:  cloud, api
-Release:   0.1.0
-```
-
-Run inspec against a profile called `path-to-profile` with an attributes file: 
-```
-inspec exec path-to-profile -t k8s:// --attrs attributes.yml
-```
+Refer to the [sample inspec-k8s profile]((https://github.com/bgeesaman/inspec-k8s-sample)
 
 ## Troubleshooting
 
 If you run into issues installing via `inspec plugin install train-kubernetes`, try:
 
-* Ensure you can cleanly install the `k8s-client` gem version `0.10.0` or greater.  e.g. `gem install k8s-client -v 0.10.0`
-* Ensure that only one version of the `excon` gem is installed.  e.g. `gem list | grep excon`.  If you see two versions, `gem uninstall -v 0.62.0` and remove the older version.
+* Try running `gem install train-kubernetes` before `inspec plugin install train-kubernetes`.
+* Ensure the `~/.inspec/plugins.json` has `"0.1.3"` and not `"= 0.1.3"` for the `version` value.  Modify it by hand if needed.
+* Ensure you can cleanly install the `k8s-client` gem version `0.10.4` or greater.  e.g. `gem install k8s-client -v 0.10.4`
+* Ensure that only one version of the `excon` gem is installed.  e.g. `gem list | grep excon`.  If you see two versions, `gem uninstall excon` and remove the older version.
