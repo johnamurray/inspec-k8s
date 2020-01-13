@@ -42,7 +42,7 @@ end
 
 ## Using with an Inspec Profile
 
-Refer to the [sample inspec-k8s profile]((https://github.com/bgeesaman/inspec-k8s-sample)
+Refer to the [sample inspec-k8s profile](https://github.com/bgeesaman/inspec-k8s-sample)
 
 ## Troubleshooting
 
