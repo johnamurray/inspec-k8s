@@ -53,13 +53,12 @@ module Inspec::Resources
     end
 
     def has_latest_container_tag?
-      if @k8sobject.respond_to?(:spec) && @k8sobject.spec.respond_to?(:containers) && @k8sobject.spec.containers.respond_to?(:image)
+      if @k8sobject.respond_to?(:spec) && @k8sobject.spec.respond_to?(:containers)
         @k8sobject.spec.containers.map {|c| c.image }.each do |i|
           return true if i =~ /^.*\:latest$/
         end
-        return false
       end
-      false
+      return false
     end
 
     def has_label?(objlabel = nil)
