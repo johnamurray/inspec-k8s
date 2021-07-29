@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'k8s_backend'
-require 'pry'
+
 
 module Inspec::Resources
   class K8sVersion < K8sResourceBase

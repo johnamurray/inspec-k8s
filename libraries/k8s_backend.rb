@@ -31,8 +31,7 @@ class K8sResourceBase < Inspec.resource(1)
     @failed_resource = true
     nil
   rescue K8s::Error::NotFound => e
-    error = JSON.parse(e.body)
-    fail_resource error['error']['message']
+    fail_resource e.message
     @failed_resource = true
     nil
   rescue Excon::Error::Socket => e
